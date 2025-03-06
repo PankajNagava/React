@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import "./ProductDetails.css";
 
 const products = [
   { id: 1, name: "Helmet Pro", price: 49, description: "Best helmet for bikers!" },
@@ -18,7 +19,7 @@ function ProductDetails() {
   };
 
   return (
-    <div>
+    <div className="product-details">
       <h2>{product.name}</h2>
       <p>{product.description}</p>
       <p>Price: ${product.price}</p>

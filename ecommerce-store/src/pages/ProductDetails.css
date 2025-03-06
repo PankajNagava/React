@@ -1,0 +1,21 @@
+.product-details {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .product-details h2 {
+    color: #333;
+  }
+  
+  .btn-success {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .btn-success:hover {
+    background-color: darkgreen;
+  }
+  
