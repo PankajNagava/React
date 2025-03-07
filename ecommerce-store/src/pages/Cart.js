@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import "./Cart.css"; // Add CSS for styling
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -10,11 +11,11 @@ function Cart() {
   };
 
   return (
-    <div>
+    <div className="cart-container">
       <h2>Your Cart</h2>
       {cart.length === 0 ? <p>No items in cart.</p> : (
         cart.map((item) => (
-          <div key={item.id} className="d-flex justify-content-between align-items-center p-2 border-bottom">
+          <div key={item.id} className="cart-item">
             <span>{item.name} - ${item.price}</span>
             <button className="btn btn-danger" onClick={() => removeFromCart(item.id)}>Remove</button>
           </div>

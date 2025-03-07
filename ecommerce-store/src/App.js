@@ -1,25 +1,32 @@
 import React from "react";
-import Navbar from "./components/Navbar"; // Corrected path
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import ProductList from "./pages/ProductList"; // ✅ New Page
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import "./App.css";
 
-const Home = () => <h2>Welcome to My Store!</h2>;
-const Products = () => <h2>Our Products</h2>;
-const Contact = () => <h2>Contact Us</h2>;
-
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Navbar />
-      <div style={{ padding: "20px" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <div className="container mt-4">
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/products" element={<ProductList />} />  {/* ✅ View All Products Page */}
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </div>
+      </Router>
+    </Provider>
   );
-}
+};
 
 export default App;
