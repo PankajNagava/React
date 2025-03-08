@@ -2,9 +2,14 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div>
-      <h1>Contact Us</h1>
-      <p>You can contact us at contact@example.com.</p>
+    <div className="card">
+      <h2>📩 Contact Us</h2>
+      <p>Have any questions? Feel free to reach out to us!</p>
+      <div className="contact-details">
+        <p>📧 Email: contact@example.com</p>
+        <p>📞 Phone: +123 456 7890</p>
+        <p>📍 Location: xyz , India</p>
+      </div>
     </div>
   );
 };

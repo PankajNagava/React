@@ -1,30 +1,83 @@
+/* Global Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f8f9fa;
   text-align: center;
 }
 
-.app {
-  padding: 20px;
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #007bff;
+  padding: 15px;
+  color: white;
 }
 
-nav ul {
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar ul {
   list-style-type: none;
   padding: 0;
 }
 
-nav ul li {
+.navbar ul li {
   display: inline;
   margin: 0 15px;
 }
 
-nav ul li a {
+.navbar ul li a {
   text-decoration: none;
-  color: #007bff;
+  color: white;
   font-weight: bold;
 }
 
-nav ul li a:hover {
-  color: #0056b3;
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 60%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* Post */
+.post-card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 60%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* 404 Page */
+.not-found {
+  padding: 50px;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.home-link:hover {
+  background: #0056b3;
 }
