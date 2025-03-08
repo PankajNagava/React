@@ -1,18 +1,21 @@
 /* Global Styles */
-body {
+body, .app {
   margin: 0;
   font-family: Arial, sans-serif;
+  height: 100vh; /* Full-screen theme */
 }
 
 /* Light & Dark Theme */
 .app.light {
   background-color: #f9f9f9;
   color: #333;
+  transition: all 0.3s ease-in-out;
 }
 
 .app.dark {
-  background-color: #333;
+  background-color: #222;
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Container Styling */
@@ -36,6 +39,25 @@ body {
   background: #0056b3;
 }
 
+/* Lazy Loading Buttons */
+.lazy-load-buttons {
+  margin-top: 30px;
+}
+
+.lazy-load-buttons button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.lazy-load-buttons button:hover {
+  background: #218838;
+}
+
 /* Loading Animation */
 .loading {
   font-size: 18px;
@@ -56,4 +78,5 @@ body {
 
 .app.dark .card {
   background: #444;
+  color: white;
 }

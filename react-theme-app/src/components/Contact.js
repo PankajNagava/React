@@ -4,10 +4,9 @@ const Contact = () => {
   return (
     <div className="card">
       <h2>Contact Page</h2>
-      <p>This is the Contact page. Reach out to us anytime!</p>
+      <p>This section is dynamically loaded after 1.2 seconds!</p>
     </div>
   );
 };
 
 export default Contact;
-
