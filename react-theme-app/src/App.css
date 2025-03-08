@@ -1,0 +1,59 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Light & Dark Theme */
+.app.light {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.app.dark {
+  background-color: #333;
+  color: white;
+}
+
+/* Container Styling */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Button Styling */
+.toggle-btn {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.toggle-btn:hover {
+  background: #0056b3;
+}
+
+/* Loading Animation */
+.loading {
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  padding: 10px;
+}
+
+/* Card Component */
+.card {
+  background: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  width: 60%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.app.dark .card {
+  background: #444;
+}
