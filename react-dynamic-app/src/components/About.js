@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import "./About.css"; // Import CSS file
 
 const About = () => {
   return (
-    <div className="card">
+    <div className="about-container">
       <h2>📖 About Us</h2>
-      <p>We are a team dedicated to building dynamic and interactive web applications.</p>
-      <p>Our goal is to provide the best user experience with modern UI/UX design.</p>
+      <p>We specialize in building interactive and user-friendly web applications.</p>
+      <p>Our mission is to provide high-quality digital experiences with a focus on performance and design.</p>
     </div>
   );
 };

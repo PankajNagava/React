@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const NotFound = () => {
+const Post = () => {
+  const { id } = useParams();
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      const data = await response.json();
+      setPost(data);
+    };
+
+    fetchPost();
+  }, [id]);
+
+  if (!post) {
+    return <div className="loading">Loading...</div>;
+  }
+
   return (
-    <div className="not-found">
-      <h1>⚠️ 404 - Page Not Found</h1>
-      <p>Oops! The page you're looking for doesn't exist.</p>
-      <a href="/" className="home-link">🏠 Go Back Home</a>
+    <div className="post-card">
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
     </div>
   );
 };
 
-export default NotFound;
+export default Post;
