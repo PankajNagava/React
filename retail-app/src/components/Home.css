@@ -1,0 +1,29 @@
+/* Home Page Styling */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #34e89e, #0f3443);
+  color: white;
+  text-align: center;
+}
+
+/* Logout Button */
+.logout-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #ff4b5c;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-button:hover {
+  background: darkred;
+}
