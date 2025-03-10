@@ -1,7 +1,6 @@
-import axios from "axios";
-
-const API_URL = "https://your-backend-api.com"; // Replace with your backend URL
-
-export const registerUser = async (userData) => {
-  return axios.post(`${API_URL}/register`, userData);
-};
+export const registerUser = (userData) => {
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    users.push(userData);
+    localStorage.setItem("users", JSON.stringify(users));
+  };
+  

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerUser } from "../api/auth";
-import "./SignUpForm.css";  // Styling
+import { registerUser } from "../api/auth";  // Handles local storage
+import "./SignUpForm.css";
 
 const schema = yup.object({
   username: yup.string().required("Username is required"),
@@ -19,19 +20,19 @@ const SignUpForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (data) => {
-    try {
-      const response = await registerUser(data);
-      alert("Registration successful!");
-      console.log(response.data);
-    } catch (error) {
-      console.error("Registration failed", error);
-    }
+  const navigate = useNavigate();
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const onSubmit = (data) => {
+    registerUser(data);
+    setSuccessMessage("🎉 Account created successfully!");
+    setTimeout(() => navigate("/users"), 2000);  // Redirect after 2 seconds
   };
 
   return (
     <div className="signup-container">
       <h2>Create an Account</h2>
+      {successMessage && <p className="success-message">{successMessage}</p>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Username</label>
         <input {...register("username")} />
