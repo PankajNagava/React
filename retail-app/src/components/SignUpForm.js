@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerUser } from "../api/auth";
-import "./SignUpForm.css";  // Styling
+import "./SignUpForm.css";
 
 const schema = yup.object({
   username: yup.string().required("Username is required"),
@@ -25,8 +25,9 @@ const SignUpForm = () => {
 
   const onSubmit = (data) => {
     registerUser(data);
+    localStorage.setItem("currentUser", JSON.stringify(data));  // Store the logged-in user
     setSuccessMessage("🎉 Account created successfully!");
-    setTimeout(() => navigate("/users"), 2000);  // Redirect after 2 seconds
+    setTimeout(() => navigate("/users"), 2000); // Redirect after 2 seconds
   };
 
   return (
