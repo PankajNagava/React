@@ -25,9 +25,8 @@ const SignUpForm = () => {
 
   const onSubmit = (data) => {
     registerUser(data);
-    localStorage.setItem("currentUser", JSON.stringify(data));  // Store the logged-in user
     setSuccessMessage("🎉 Account created successfully!");
-    setTimeout(() => navigate("/users"), 2000); // Redirect after 2 seconds
+    setTimeout(() => navigate("/home"), 2000);  // Redirect to Home Page after 2 seconds
   };
 
   return (

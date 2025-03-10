@@ -7,16 +7,22 @@ const UserList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is logged in
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     if (!currentUser) {
-      alert("Access Denied! Please Sign Up First.");
-      navigate("/signup"); // Redirect back to sign-up page if not logged in
+      alert("Access Denied! Please Register First.");
+      navigate("/signup");  // Redirect to sign-up page if not logged in
       return;
     }
 
-    // Load registered users from localStorage
+    // Load all registered users from localStorage
     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    
+    if (storedUsers.length === 0) {
+      console.log("No users found in localStorage");
+    } else {
+      console.log("Users retrieved from localStorage:", storedUsers);
+    }
+
     setUsers(storedUsers);
   }, [navigate]);
 
@@ -26,13 +32,22 @@ const UserList = () => {
       {users.length === 0 ? (
         <p>No users registered yet.</p>
       ) : (
-        <ul>
-          {users.map((user, index) => (
-            <li key={index}>
-              <strong>{user.username}</strong> - {user.email}
-            </li>
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user, index) => (
+              <tr key={index}>
+                <td>{user.username}</td>
+                <td>{user.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );
