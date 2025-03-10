@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerUser } from "../api/auth";  // Handles local storage
-import "./SignUpForm.css";
+import { registerUser } from "../api/auth";
+import "./SignUpForm.css";  // Styling
 
 const schema = yup.object({
   username: yup.string().required("Username is required"),
@@ -31,27 +31,37 @@ const SignUpForm = () => {
 
   return (
     <div className="signup-container">
-      <h2>Create an Account</h2>
-      {successMessage && <p className="success-message">{successMessage}</p>}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Username</label>
-        <input {...register("username")} />
-        {errors.username && <p className="error">{errors.username.message}</p>}
+      <div className="signup-box">
+        <h2>Create an Account</h2>
+        {successMessage && <p className="success-message">{successMessage}</p>}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="input-group">
+            <label>Username</label>
+            <input {...register("username")} placeholder="Enter your username" />
+            {errors.username && <p className="error">{errors.username.message}</p>}
+          </div>
 
-        <label>Email</label>
-        <input {...register("email")} />
-        {errors.email && <p className="error">{errors.email.message}</p>}
+          <div className="input-group">
+            <label>Email</label>
+            <input {...register("email")} placeholder="Enter your email" />
+            {errors.email && <p className="error">{errors.email.message}</p>}
+          </div>
 
-        <label>Password</label>
-        <input type="password" {...register("password")} />
-        {errors.password && <p className="error">{errors.password.message}</p>}
+          <div className="input-group">
+            <label>Password</label>
+            <input type="password" {...register("password")} placeholder="Enter a secure password" />
+            {errors.password && <p className="error">{errors.password.message}</p>}
+          </div>
 
-        <label>Confirm Password</label>
-        <input type="password" {...register("confirmPassword")} />
-        {errors.confirmPassword && <p className="error">{errors.confirmPassword.message}</p>}
+          <div className="input-group">
+            <label>Confirm Password</label>
+            <input type="password" {...register("confirmPassword")} placeholder="Confirm your password" />
+            {errors.confirmPassword && <p className="error">{errors.confirmPassword.message}</p>}
+          </div>
 
-        <button type="submit">Sign Up</button>
-      </form>
+          <button type="submit" className="signup-button">Sign Up</button>
+        </form>
+      </div>
     </div>
   );
 };
